@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>fakebook *by cesario uy*</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if flash[:errors] %>
+<ul class="errors">
+  <% flash[:errors].each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<div class="wrapper">
+  <%= render partial: "./layouts/nav_bar" %>
+</div>
+
+<div class="content">
+  <%= yield %>
+</div>
+
+</body>
+</html>

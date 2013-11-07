@@ -1,0 +1,17 @@
+<% @is_current_user_profile = false %>
+<% @user_id = -1 %>
+
+<h1>News Feed (posts from your friends)</h1>
+
+<ul class="posts">
+  <% @friends_posts.each do |post| %>
+    <% @post = post %>
+    <% @post_link = post.link %>
+    <% user = post.user %>
+
+    <li class="post">
+      <a href="<%= user_url(user) %>" class="name"><%= user.name %></a>
+      <%= render partial: "./posts/post_list_item_content" %>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,27 @@
+<h1><%= @user.name %></h1>
+
+<form action="<%= user_posts_url(@user) %>" method="post">
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>"
+  >
+
+  <label>Message:<br>
+    <textarea name="post[message]"></textarea>
+  </label>
+
+  <br><br>
+
+  <label>Optional link (prefix with "http://..."):<br>
+    <input type="text" name="post[link]">
+  </label>
+
+  <br><br>
+
+  <input type="submit" value="Post message">
+</form>
+
+<%= button_to "Cancel", user_url(@user), method: :get %>
+
+<%= render partial: "posts_list" %>

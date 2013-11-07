@@ -1,0 +1,10 @@
+<p><%= @post.message %></p>
+<% if @post_link %>
+  <a href="<%= @post_link %>" target="_blank"><%= @post_link %></a>
+<% end %>
+
+<% if @is_current_user_profile %>
+  <%= button_to "Delete Post",
+    user_post_url(user_id: @user_id, id: @post.id),
+    method: :delete %>
+<% end %>

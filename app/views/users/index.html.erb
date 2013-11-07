@@ -1,0 +1,18 @@
+<% current_user_id = current_user.id %>
+
+<h1>All Users</h1>
+
+<ul class="users">
+  <% @users.each do |user| %>
+    <% user_id = user.id%>
+
+    <li class="user">
+      <a href="<%= user_url(user) %>" class="name"><%= user.name %></a>
+      <% if user_id == current_user_id %>
+        <span>(you)</span>
+      <% elsif @friends.include?(user) %>
+        <span>(friend)</span>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

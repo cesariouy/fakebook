@@ -1,0 +1,37 @@
+<% signed_in = !!current_user %>
+
+<div id="nav-bar">
+  <ul id="nav-list">
+    <li><span id="logo">fakebook</span></li>
+    <li>
+      <% if signed_in %>
+        <a href="<%= user_url(current_user) %>">Your Profile</a>
+      <% else %>
+        <a href="<%= new_session_url %>">Your Profile</a>
+      <% end %>
+    </li>
+    <li>
+      <% if signed_in %>
+        <a href="<%= feed_url %>">Your Feed</a>
+      <% else %>
+        <a href="<%= new_session_url %>">Your Feed</a>
+      <% end %>
+    </li>
+    <li>
+      <% if signed_in %>
+        <a href="<%= users_url %>">User Directory</a>
+      <% else %>
+        <a href="<%= new_session_url %>">User Directory</a>
+      <% end %>
+    </li>
+    <li>
+      <% if signed_in %>
+        <span>Signed in as: <%= current_user.name %>
+          <%= button_to "Sign Out", session_url, method: :delete %></span>
+      <% else %>
+        <span>Not signed in
+          <%= button_to "Sign In", new_session_url, method: :get %></span>
+      <% end %>
+    </li>
+  </ul>
+</div>

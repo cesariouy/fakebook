@@ -1,0 +1,13 @@
+<% @is_current_user_profile = (@user == current_user) %>
+<% @user_id = @user.id %>
+
+<ul class="posts">
+  <% @posts.each do |post| %>
+    <% @post = post %>
+    <% @post_link = post.link %>
+
+    <li class="post">
+      <%= render partial: "./posts/post_list_item_content" %>
+    </li>
+  <% end %>
+</ul>
