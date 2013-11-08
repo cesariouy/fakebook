@@ -10,6 +10,7 @@
 - Posts are always ordered from most recent to oldest
 - Users listed on the directory page are ordered alphabetically
 - External links must be prefixed with "http(s)://"
+- Some of the code related to signing in/out is located in `app/helpers/sessions_helper.rb`
 - **Passwords are NOT encrypted**
 
 ### Possible improvements:
