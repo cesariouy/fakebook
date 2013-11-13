@@ -11,7 +11,7 @@ class Post < ActiveRecord::Base
 
   def self.sort_posts(posts)
     oldest_first = posts.sort_by do |post|
-      post.id
+      post.created_at
     end
 
     newest_first = oldest_first.reverse
